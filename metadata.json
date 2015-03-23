@@ -1,0 +1,14 @@
+{
+  "name": "puppet-wiz",
+  "version": "0.1.0",
+  "author": "Dimitri Steyaert",
+  "summary": "This module installs Wiz, the CLI interface for Magento.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/DimitriSteyaert/puppet-wiz",
+  "project_page": "https://github.com/DimitriSteyaert/puppet-wiz",
+  "issues_url": "https://github.com/DimitriSteyaert/puppet-wiz/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

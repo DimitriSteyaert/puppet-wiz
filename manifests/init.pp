@@ -1,41 +1,63 @@
 # == Class: wiz
 #
-# Full description of class wiz here.
+# This class installs Wiz, the CLI for Magento.
 #
 # === Parameters
 #
-# Document parameters here.
+# All of the variables are optional and should only be changed if you
+# would like to install Wiz on a location that is different from the default
+# and from a repository from another location.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*install_dest*]
+#   By default wiz is downloaded into the folder /usr/share/wiz. If you would
+#   like to download Wiz into another folder you can edit this parameter.
 #
-# === Variables
+# [*repository*]
+#   Wiz is downloaded from the repository https://github.com/classyllama/Wiz
+#   but if you would like to get Wiz from another repository then you can
+#   pass that repository to this parameter.
 #
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*exec_location*]
+#   The executable is configured in /usr/bin by default, if you would like to
+#   launch Wiz from another executable path then pass that path to the
+#   exec_location parameter.
 #
 # === Examples
 #
+#  class { 'wiz': } # for installation with default parameters.
+#
 #  class { 'wiz':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    install_dest  => '/usr/share/wiz',
+#    repository    => 'https://github.com/classyllama/Wiz',
+#    exec_location => '/usr/bin/',
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Dimitri Steyaert <dimitri@steyaert.be>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Dimitri Steyaert.
 #
-class wiz {
-
-
+class wiz (
+  $install_dest  = '/usr/share/wiz',
+  $repository    = 'https://github.com/classyllama/Wiz',
+  $exec_location = '/usr/bin/',
+) {
+  exec { 'clone-wiz':
+    creates   => $install_dest,
+    command   => "git clone ${repository} ${install_dest}",
+    path      => ['/usr/local/bin', '/usr/bin'],
+    logoutput => true,
+    require   => Package['git'],
+  }
+  file { "${exec_location}/wiz":
+    ensure  => "${install_dest}/wiz",
+    require => Exec['clone-wiz'],
+  }
+  file { '/etc/bash_completion.d/wiz':
+    ensure  => "${install_dest}/wiz.bash_completion.sh",
+    require => Exec['clone-wiz'],
+  }
 }

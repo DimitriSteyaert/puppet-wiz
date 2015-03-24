@@ -1,5 +1,7 @@
 # wiz
 
+[![Build Status](https://travis-ci.org/DimitriSteyaert/puppet-wiz.svg)](https://travis-ci.org/DimitriSteyaert/puppet-wiz)
+
 #### Table of Contents
 
 1. [Overview](#overview)

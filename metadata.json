@@ -1,6 +1,6 @@
 {
   "name": "puppet-wiz",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Dimitri Steyaert",
   "summary": "This module installs Wiz, the CLI interface for Magento.",
   "license": "Apache 2.0",

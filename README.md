@@ -17,65 +17,52 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+The Wiz module installs wiz on your machine. [Wiz](https://github.com/classyllama/Wiz)
+is the CLI for Magento.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+The Wiz CLI tool is installed by this module with a default set of parameters.
+These parameters such as the installation destination and repository can be adjusted
+to your likings.
 
 ## Setup
 
 ### What wiz affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
-
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+* Creates the folder wiz under `/usr/share/`
+* Installs git if this isn't already installed
+* Creates a symlink in `/usr/bin/`
+* Creates a symlink to wiz.bash_completion.sh in `/etc/bash_completion.d/
 
 ### Beginning with wiz
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+To install Wiz just use `include wiz` and you are set to go.
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+To fully alter the installation destination and repository you can use this
+extended version of the class.
 
-## Reference
-
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+```
+class { 'wiz':
+  install_dest  => '/usr/local/src/wiz',
+  repository    => 'https://github.com/classyllama/Wiz',
+  exec_location => '/usr/local/bin/',
+}
+```
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module should work on all the flavours of Debian/Ubuntu and RedHat/CentOS.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+Don't hesitate to open an [issue](https://github.com/DimitriSteyaert/puppet-wiz/issues)
+if you should encounter any bugs or other issues.
 
-## Release Notes/Contributors/Etc **Optional**
+## Contributors
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+Just me at the moment:
+
+* Dimitri Steyaert <puppet@dimitri.eu>

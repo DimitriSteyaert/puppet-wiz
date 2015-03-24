@@ -13,9 +13,7 @@ env:
   - PUPPET_VERSION=3.3.2
   - PUPPET_VERSION=3.2.4
   - PUPPET_VERSION=3.1.1
-  - PUPPET_VERSION=3.0.2
   - PUPPET_VERSION=2.7.24
-  - PUPPET_VERSION=2.6.18
 notifications:
   email: github@dimitri.eu
 gemfile: Gemfile

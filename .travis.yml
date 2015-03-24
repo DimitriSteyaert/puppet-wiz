@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 1.9.3
 script: "rake default"
 branches:
   only:

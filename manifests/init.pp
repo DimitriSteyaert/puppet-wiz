@@ -52,6 +52,9 @@ class wiz (
     logoutput => true,
     require   => Package['git'],
   }
+  package { 'git':
+    ensure => installed,
+  }
   file { "${exec_location}/wiz":
     ensure  => "${install_dest}/wiz",
     require => Exec['clone-wiz'],

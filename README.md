@@ -8,6 +8,7 @@
 2. [Module Description - What does the Wiz module do](#module-description)
 3. [Setup - The basics of getting started with wiz](#setup)
     * [What wiz affects](#what-wiz-affects)
+    * [What wiz doesn't affect](#what-wiz-doesnt-affect)
     * [Beginning with wiz](#beginning-with-wiz)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -33,6 +34,12 @@ to your likings.
 * Installs git if this isn't already installed
 * Creates a symlink in `/usr/bin/`
 * Creates a symlink to wiz.bash_completion.sh in `/etc/bash_completion.d/`
+
+### What wiz doesn't affect
+
+Wiz requires PHP (minimal version 5.2) to be installed. This module doesn't affect
+your local PHP version nor does it install PHP so you will need another Puppet
+module to handle your PHP configuration.
 
 ### Beginning with wiz
 

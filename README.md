@@ -5,15 +5,14 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
+2. [Module Description - What does the Wiz module do](#module-description)
 3. [Setup - The basics of getting started with wiz](#setup)
     * [What wiz affects](#what-wiz-affects)
-    * [Setup requirements](#setup-requirements)
     * [Beginning with wiz](#beginning-with-wiz)
 4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
+7. [Contributors](#contributors)
 
 ## Overview
 
@@ -33,7 +32,7 @@ to your likings.
 * Creates the folder wiz under `/usr/share/`
 * Installs git if this isn't already installed
 * Creates a symlink in `/usr/bin/`
-* Creates a symlink to wiz.bash_completion.sh in `/etc/bash_completion.d/
+* Creates a symlink to wiz.bash_completion.sh in `/etc/bash_completion.d/`
 
 ### Beginning with wiz
 

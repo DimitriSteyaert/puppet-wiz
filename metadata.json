@@ -1,6 +1,6 @@
 {
   "name": "DimitriSteyaert-wiz",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "DimitriSteyaert",
   "summary": "This module installs Wiz, the CLI interface for Magento.",
   "license": "Apache-2.0",
